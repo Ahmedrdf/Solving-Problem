@@ -1,0 +1,44 @@
+// This challenge is a little bit more complex
+// Write a function that takes a number as argument
+// If the number is prime, return the number
+// If not, return the next higher prime number
+
+function Prime(n) {
+  var arrayMode = [];
+  var nbre = 0;
+  var result = 0;
+  for (let i = 1; i <= n; i++) {
+    arrayMode[i] = n % i;
+  }
+  for (let j = 0; j < n; j++) {
+    if (arrayMode[j] == 0) {
+      nbre++;
+    }
+  }
+  if (nbre <= 2) {
+    result = n;
+  }
+  return result;
+}
+
+//console.log(Prime(13));
+
+function PrimeFinal(m) {
+  var result = 0;
+  if (m != Prime(m)) {
+    let i = 1;
+    while (i < 7 && result == 0) {
+      if (m + i == Prime(m + i)) {
+        result = m + i;
+      }
+      i++;
+    }
+  } else if (m == Prime(m)) {
+    result = m;
+  }
+  return result;
+}
+console.log(PrimeFinal(38));
+console.log(PrimeFinal(17));
+console.log(PrimeFinal(115));
+console.log(PrimeFinal(2000));
